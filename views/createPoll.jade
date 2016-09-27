@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title=title
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+        link(rel="stylesheet",type="text/css",href="/css/mystyle.css")
+        script(src='/js/pollCreate.js')
+    body
+        div.container
+            div.row
+                div.col-sm-8.col-md-6.col-md-offset-3
+                    h2.text-center New Poll
+                        div.poll-creator
+                            form(class='form-signin', action='/createpoll', method='POST')
+                                input(type='text', name='pollques', class='form-control', placeholder='What is your favourite brand',required, autofocus)
+                                div(id="optionsContainer")
+                                    input(type='text', name='option1', class='form-control ', placeholder='Coke', required)
+                                    input(type='text', name='option2', class='form-control ', placeholder='Coke', required)
+                                button(class='btn btn-lg btn-primary btn-block',id="optionsAdd", type='button',onClick="createOption()") Add options
+                                button(class='btn btn-lg btn-primary btn-block', type='submit') Create Poll
+                                span.clearfix
+                        #message
+                            if message
+                                h1.text-center.error-message #{message}

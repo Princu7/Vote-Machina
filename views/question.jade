@@ -1,0 +1,29 @@
+include mixins
+doctype html
+html(lang="en")
+    head
+        +boilerplate
+        script(type="text/javascript" src="https://www.gstatic.com/charts/loader.js")
+        script(src='/js/question.js')
+    body
+        +nav("Voting app","navigation_menu","inverse")
+            +nav_item("#","active") PollQuestion
+            if !user
+                +nav_item("/signup") Signup
+                +nav_item("/login") Login
+                +nav_item("/") Home
+            else
+                +nav_item("/home") Home
+                +nav_item("Logout") Logout
+        +jumbotron("Vote Machina")
+        h2(class="pollques",id="ques") #{doc.pollques}
+        div.row(id="question")
+            div.col-md-6.makeFull.col-xs-12
+                div.form-group
+                    label(for="sell") Select option:
+                    select(class="form-control",id="sell")
+                        option(value="" disabled selected) select one from the list below
+                        each val,index in doc.options
+                            option=index
+            div.col-md-6.col-xs-12
+                div(id="chart_div")

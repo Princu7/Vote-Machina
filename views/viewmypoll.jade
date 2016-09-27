@@ -1,0 +1,26 @@
+include mixins
+doctype html
+html(lang="en")
+    head
+        +boilerplate
+        link(rel="stylesheet",type="html/css",href="/css/mystyle.css")
+        script(src="/js/viewmypoll.js")
+    body
+        +nav("Voting App","navigation_menu","inverse")
+            +nav_item("#","active") MyPolls
+            +nav_item("/home") Home
+            +nav_item("/logout") Logout
+        +jumbotron("Vote Machina")
+            h2 Here are your polls #{user.username}
+        - var arr=user.polls
+        div.container-fluid(id="selector",style="padding-top:30px")
+            for item in arr
+                div.row.viewpolluserpoll
+                    div.col-xs-12.col-md-6
+                        button(class="btn btn-success custombutton",id="comquesid") #{item.question}
+                    div.col-xs-12.col-md-2
+                        button(class=" custombutton btn btn-primary",type="button" disabled) TotalVotes = #{item.totalVotes}
+                    div.col-xs-12.col-md-2
+                        button(class="btn custombutton btn-danger",id="comdeleteid") Delete
+                    div.col-xs-12.col-md-2
+                        button(class="btn custombutton btn-primary",id="commodifyid") Modify

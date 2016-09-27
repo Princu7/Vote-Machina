@@ -1,0 +1,21 @@
+include mixins
+doctype html
+html(lang="en")
+    head
+        +boilerplate
+        script(src='/js/question.js')
+    body
+        +nav("Voting app","navigation_menu","inverse")
+            +nav_item("#","active") PollQuestion
+            +nav_item("/signup") Signup
+            +nav_item("/login") Login
+            +nav_item("/") Home
+        +jumbotron("Vote Machina")
+        h2(class="pollques") #{doc.pollques}
+        div.row(id="question")
+            div.col-md-6.makeFull.col-xs-12
+                    each val,index in doc.options
+                        div.radio
+                            label(class="labelButton")
+                                input(type="radio",name="optradio")
+                                |  #{index}

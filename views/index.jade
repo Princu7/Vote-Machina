@@ -1,0 +1,19 @@
+include mixins
+doctype html 
+html(lang="en")
+    head
+        +boilerplate
+        //link(rel="stylesheet",type="text/css",href="/css/mystyle.css")
+        script(src='/js/pollqueries.js')
+    body
+        +nav("Voting app","navigation_menu","inverse")
+            +nav_item("#","active") Home
+            +nav_item("/signup") Signup
+            +nav_item("/login") Login 
+        +jumbotron("VoteMachina","Create and view polls ")
+            +button("success","/signup","large") Signup
+        div.row(style="margin-bottom:10px;")
+            h3(style="text-align:center") You can vote on any of these polls.
+        div.container-fluid(id="test",style="margin:0px; padding:0px;")
+            +enumerate(arr)
+

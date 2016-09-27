@@ -1,0 +1,18 @@
+include mixins
+doctype html
+html(lang="en")
+    head
+        +boilerplate
+        link(rel="stylesheet",type="html/css",href="/css/mystyle.css")
+        script(src="/js/userprofile.js")
+    body
+        +nav("Voting App","navigation_menu","inverse")
+            +nav_item("#","active") Home
+        +jumbotron("VoteMachina")
+            h2 #{user.username} profile
+        h3(style="text-align:center") Polls created by #{user.username}
+        - var arr=user.polls
+        div.container-fluid(id="selector")
+            for item in arr
+                div.row.userpoll
+                    button(class="btn custombutton")=item

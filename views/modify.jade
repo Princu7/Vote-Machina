@@ -1,0 +1,29 @@
+include mixins
+doctype html
+html(lang="en")
+    head
+        +boilerplate
+        script(src="/js/modify.js")
+    body
+        +nav("Voting app","navigation_menu","inverse")
+            +nav_item("#",active) Modify Poll
+            +nav_item("/home") Home
+            +nav_item("/logout") Logout
+        +jumbotron("VoteMachina")
+            h3 Modify your polls
+        div.container-fluid
+            div.row(style="font-size:25px;text-align:center;margin-top:20px;") #{ques.pollques}
+            - var option= ques.options
+            div.row(style="text-align:center;margin-top:40px;")
+                table(class="table table-responsive table-bordered",style="width:90%;margin:auto;table-layout:fixed")
+                    tbody(id="optiontable")
+                        each val,index in option
+                            tr(id="comrowid")
+                                td(style="padding:0px;vertical-align:middle;font-size:20px")=index
+                                td(style="padding:0px;vertical-align:middle;font-size:20px;")=val
+                                td(style="padding:0px;width:30%;")
+                                    button(class="btn btn-danger",style="width:100%;font-size:20px;",id="comdeleteid") Delete
+            form(class="form-signin",id="myform",method="post")
+                input(type="text",name='option1',class='form-control',placeholder='your option',required)
+            div.row(style="text-align:center;margin-top:30px")
+                button(class="btn btn-primary",style="font-size:20px;",id="addoption") Add More Options

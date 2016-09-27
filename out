@@ -1,0 +1,25 @@
+connected to database
+middleware
+{ sessionid: '13d0e480-2f13-11e6-97c4-0dcb36fdfcae' }
+this is url of request /
+{ sessionid: '13d0e480-2f13-11e6-97c4-0dcb36fdfcae' }
+middleware
+{ sessionid: '13d0e480-2f13-11e6-97c4-0dcb36fdfcae' }
+this is url of request /home
+{ sessionid: '13d0e480-2f13-11e6-97c4-0dcb36fdfcae' }
+I am coming here
+Error: Can't set headers after they are sent.
+    at ServerResponse.OutgoingMessage.setHeader (_http_outgoing.js:335:11)
+    at ServerResponse.header (/home/princu/bootstrap/votingApp/node_modules/express/lib/response.js:718:10)
+    at ServerResponse.send (/home/princu/bootstrap/votingApp/node_modules/express/lib/response.js:163:12)
+    at done (/home/princu/bootstrap/votingApp/node_modules/express/lib/response.js:957:10)
+    at Object.exports.renderFile (/home/princu/bootstrap/votingApp/node_modules/jade/lib/index.js:374:12)
+    at View.exports.__express [as engine] (/home/princu/bootstrap/votingApp/node_modules/jade/lib/index.js:417:11)
+    at View.render (/home/princu/bootstrap/votingApp/node_modules/express/lib/view.js:126:8)
+    at tryRender (/home/princu/bootstrap/votingApp/node_modules/express/lib/application.js:639:10)
+    at EventEmitter.render (/home/princu/bootstrap/votingApp/node_modules/express/lib/application.js:591:3)
+    at ServerResponse.render (/home/princu/bootstrap/votingApp/node_modules/express/lib/response.js:961:7)
+middleware
+{ sessionid: '13d0e480-2f13-11e6-97c4-0dcb36fdfcae' }
+this is url of request /
+{ sessionid: '13d0e480-2f13-11e6-97c4-0dcb36fdfcae' }
